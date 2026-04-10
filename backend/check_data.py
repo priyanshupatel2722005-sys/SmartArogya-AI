@@ -1,0 +1,25 @@
+import pandas as pd
+
+print("=" * 50)
+print("DIABETES DATASET")
+print("=" * 50)
+df1 = pd.read_csv("datasets/diabetes.csv")
+print(f"Shape: {df1.shape}")
+print(f"Columns: {list(df1.columns)}")
+print(df1.head(2))
+
+print("\n" + "=" * 50)
+print("HEART DISEASE DATASET")
+print("=" * 50)
+df2 = pd.read_csv("datasets/heart.csv")
+print(f"Shape: {df2.shape}")
+print(f"Columns: {list(df2.columns)}")
+print(df2.head(2))
+
+print("\n" + "=" * 50)
+print("KIDNEY DISEASE DATASET")
+print("=" * 50)
+df3 = pd.read_csv("datasets/kidney.csv")
+print(f"Shape: {df3.shape}")
+print(f"Columns: {list(df3.columns)}")
+print(df3.head(2))

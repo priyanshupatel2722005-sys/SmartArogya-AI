@@ -1,0 +1,6 @@
+Flask
+flask-cors
+PyJWT
+gspread
+oauth2client
+numpy
