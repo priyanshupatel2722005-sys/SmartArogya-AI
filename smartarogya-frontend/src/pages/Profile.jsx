@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
+import { API_BASE } from "../api";
 
 const Profile = () => {
   const { t } = useLanguage();
@@ -32,7 +33,7 @@ const Profile = () => {
     }
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:5000/update-profile", {
+      const res = await fetch(`${API_BASE}/update-profile`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, userId: user?.userId }),

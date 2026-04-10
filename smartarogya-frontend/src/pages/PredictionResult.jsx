@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
 import { jsPDF } from "jspdf";
+import { API_BASE } from "../api";
 
 const RiskBar = ({ label, percent, level }) => {
   const colorMap = { Low: "bg-green-500", Moderate: "bg-yellow-400", High: "bg-red-500" };
@@ -59,7 +60,7 @@ const PredictionResult = () => {
       }
 
       try {
-        const response = await fetch("http://127.0.0.1:5000/predict", {
+        const response = await fetch(`${API_BASE}/predict`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(data),
@@ -69,7 +70,7 @@ const PredictionResult = () => {
           setResult(result);
           const savedUser = JSON.parse(localStorage.getItem("user") || "{}");
           try {
-            await fetch("http://127.0.0.1:5000/save-prediction", {
+            await fetch(`${API_BASE}/save-prediction`, {
               method: "POST",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify({

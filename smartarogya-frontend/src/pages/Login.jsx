@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
+import { API_BASE } from "../api";
 
 const EyeIcon = ({ show }) => (
   show ? (
@@ -66,7 +67,7 @@ const Login = () => {
     }
     setLoading(true);
     try {
-      const response = await fetch("http://127.0.0.1:5000/login", {
+      const response = await fetch(`${API_BASE}/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, password, role }),

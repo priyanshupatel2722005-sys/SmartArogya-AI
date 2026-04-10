@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useLanguage } from "../context/LanguageContext";
 import Navbar from "../components/Navbar";
+import { API_BASE } from "../api";
 
 const EyeIcon = ({ show }) => (
   show ? (
@@ -44,7 +45,7 @@ const Register = () => {
     }
     const timer = setTimeout(async () => {
       try {
-        const res = await fetch(`http://127.0.0.1:5000/check-userid?userId=${userId}`);
+        const res = await fetch(`${API_BASE}/check-userid?userId=${userId}`);
         const data = await res.json();
         setUserIdStatus(data.available ? "success" : "error");
         setUserIdMessage(data.available ? "User ID available ✅" : "User ID already taken ❌");
@@ -62,7 +63,7 @@ const Register = () => {
     if (userIdStatus !== "success") { setError("Please fix User ID before submitting."); return; }
     setLoading(true);
     try {
-      const res = await fetch("http://127.0.0.1:5000/register", {
+      const res = await fetch(`${API_BASE}/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, role: "patient" }),
