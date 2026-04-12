@@ -22,7 +22,7 @@ function App() {
   return (
     <LanguageProvider>
       <AuthProvider>
-        <Router>
+        <Router basename="/SmartArogya-AI">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
