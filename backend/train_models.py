@@ -118,7 +118,7 @@ try:
     )
 
     diabetes_model = RandomForestClassifier(
-        n_estimators=200,
+        n_estimators=50,
         max_depth=12,
         min_samples_split=5,
         min_samples_leaf=2,
@@ -205,8 +205,8 @@ try:
     )
 
     heart_model = RandomForestClassifier(
-        n_estimators=200,
-        max_depth=15,
+        n_estimators=50,
+        max_depth=12,
         min_samples_split=4,
         min_samples_leaf=2,
         max_features="sqrt",
@@ -309,7 +309,7 @@ try:
     )
 
     kidney_model = RandomForestClassifier(
-        n_estimators=300,
+        n_estimators=50,
         max_depth=None,
         min_samples_split=3,
         min_samples_leaf=1,
